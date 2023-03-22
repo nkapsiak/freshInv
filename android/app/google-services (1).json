@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "913883493958",
+    "firebase_url": "https://freshinv-47293-default-rtdb.firebaseio.com",
+    "project_id": "freshInv-47293",
+    "storage_bucket": "freshInv-47293.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913883493958:android:2cf9c082af718205607c47",
+        "android_client_info": {
+          "package_name": "com.example.freshInv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913883493958-f8m8nbjv5ak9ijq04egr8dr397ee84gi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNJ9PJ8edg6SFXRGu5RJpaIcpCvv_zju4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913883493958-f8m8nbjv5ak9ijq04egr8dr397ee84gi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
