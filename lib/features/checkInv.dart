@@ -18,30 +18,32 @@ class _CheckInvState extends State<CheckInv> {
 
   Widget listItem({required Map inventory}) {
     return Container(
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.all(10),
-      height: 75,
-      color: Colors.blue,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-          inventory['brand'],
-            style: TextStyle(fontSize: 12)),
-          SizedBox( height: 5),
-          Text(
-          inventory['model'],
-          style: TextStyle(fontSize: 12),),
-          SizedBox(height: 5,),
-          Text(
-            inventory['mac number'],
-            style: TextStyle(fontSize: 12),
-          )
-        ],
-      ),
+        margin: EdgeInsets.all(10),
+        padding: EdgeInsets.all(10),
+        height: 75,
+        color: Colors.blue,
+        child: FilledButton(onPressed: (){},
 
-    );
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+            children: [Text(
+            inventory['brand'],
+              style: TextStyle(fontSize: 12)),
+            SizedBox( height: 5),
+            Text(
+            inventory['model'],
+            style: TextStyle(fontSize: 12),),
+            SizedBox(height: 5,),
+            Text(
+              inventory['mac number'],
+              style: TextStyle(fontSize: 12),
+            )
+          ]),
+        ),
+
+        );
+
   }
   @override
   Widget build(BuildContext context) {
