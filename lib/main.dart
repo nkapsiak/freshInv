@@ -8,6 +8,7 @@ import 'package:freshinv/features/addItem.dart';
 import 'dart:async';
 import 'package:freshinv/features/removeItem.dart';
 import 'features/checkInv.dart';
+import 'package:freshinv/features/style.dart';
 
 
 
@@ -37,6 +38,8 @@ class MyApp extends StatelessWidget {
         '/additem': (BuildContext context) => new AddItem(),
         '/removeitem': (BuildContext context) => new RemoveItem(),
         '/checkinv': (BuildContext context) => new CheckInv(),
+
+
       },
     );
   }

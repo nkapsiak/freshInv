@@ -27,15 +27,15 @@ class _CheckInvState extends State<CheckInv> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-          inventory['brand'],
+          inventory['First Name'],
             style: TextStyle(fontSize: 12)),
           SizedBox( height: 5),
           Text(
-          inventory['model'],
+          inventory['Last Name'],
           style: TextStyle(fontSize: 12),),
           SizedBox(height: 5,),
           Text(
-            inventory['mac number'],
+            inventory['Animal Type'],
             style: TextStyle(fontSize: 12),
           )
         ],
