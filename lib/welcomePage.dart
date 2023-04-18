@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:freshinv/loginPage.dart';
 import 'package:flutter/material.dart';
-import 'package:freshinv/features/addItem.dart';
+import 'package:freshinv/features/customerInfo.dart';
 
 class welcomePage extends StatelessWidget {
   const welcomePage({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class welcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body: Column(
         children: [
           SizedBox(height: MediaQuery.of(context).size.height*.125),
@@ -18,7 +18,7 @@ class welcomePage extends StatelessWidget {
                 style:TextStyle(
                 fontSize: 30,
                 fontStyle: FontStyle.italic,
-                color: Colors.black,
+                color: Colors.grey,
                 )),
           )),
           Align(alignment: Alignment.center,
@@ -26,50 +26,91 @@ class welcomePage extends StatelessWidget {
           style: TextStyle(
             fontSize: 30,
             fontStyle: FontStyle.italic,
-            color: Colors.black,
+            color: Colors.grey,
           ),),),),
-          SizedBox(height: 100,),
+          SizedBox(height: 75,),
           Container(
+          decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Colors.yellow.shade50,Colors.green.shade900],
+
+          ),
+          ),
             width: MediaQuery.of(context).size.width*.5,
             height: MediaQuery.of(context).size.height*.125,
             child:
-            ElevatedButton(onPressed: () {
+            TextButton(onPressed: () {
               Navigator.of(context).pushNamed('/additem');
             },
             child: Text('Add Item',
             style: TextStyle(
               fontSize: 20,
+              color: Colors.black
             ),)),
           ),
           SizedBox(height: 20,),
           Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Colors.yellow.shade50,Colors.green.shade900],
+
+              ),
+            ),
             width: MediaQuery.of(context).size.width*.5,
             height: MediaQuery.of(context).size.height*.125,
             child:
-            ElevatedButton(onPressed: () {
+            TextButton(onPressed: () {
               Navigator.of(context).pushNamed('/removeitem');
             }, child: Text('Remove Item',
             style: TextStyle(
               fontSize: 20,
+              color: Colors.black
             ),)),
           ),
           SizedBox(height: 20,),
           Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Colors.yellow.shade50,Colors.green.shade900],
+
+              ),
+            ),
+
             width: MediaQuery.of(context).size.width*.5,
             height: MediaQuery.of(context).size.height*.125,
             child:
-            ElevatedButton(onPressed: () {
+            TextButton(onPressed: () {
               Navigator.of(context).pushNamed('/checkinv');
             }, child: Text('Check Inventory',
             style:TextStyle(fontSize: 20,
+              color: Colors.black
             ))),
           ),
           SizedBox(height: 20,),
           Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [Colors.yellow.shade50,Colors.green.shade900],
+
+              ),
+            ),
+
             width: MediaQuery.of(context).size.width*.25,
             height: MediaQuery.of(context).size.height*.06,
             child:
-            ElevatedButton(onPressed: (){
+            TextButton(onPressed: (){
               FirebaseAuth.instance.signOut().then((value) {
                 Navigator.of(context).pushReplacementNamed('/landingpage');
               }).catchError((e){
@@ -79,8 +120,9 @@ class welcomePage extends StatelessWidget {
               child: Text('Sign Out',
             style: TextStyle(
               fontSize: 16,
-            ),),style: ElevatedButton.styleFrom(backgroundColor: Colors.red),),
-          ),
+              color: Colors.black
+            ),)
+          )),
 
 
         ],

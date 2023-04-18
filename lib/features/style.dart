@@ -4,7 +4,7 @@ import 'package:freshinv/main.dart';
 import 'package:freshinv/signUp.dart';
 import 'package:freshinv/welcomePage.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:freshinv/features/addItem.dart';
+import 'package:freshinv/features/customerInfo.dart';
 import 'dart:async';
 import 'package:freshinv/features/removeItem.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -29,12 +29,17 @@ class _styleState extends State<style> {
 
    late DatabaseReference dbRef;
 
+  set falseHope(String? falseHope) {
+    falseHope = this.animalId;
+  }
+
 
 
   @override
   void initState(){
     super.initState();
     dbRef = FirebaseDatabase.instance.ref().child('Inventory');
+
 
 
   }
@@ -52,6 +57,7 @@ class _styleState extends State<style> {
                   this.animals,
                   (onChangedVal){
                   this.animalId = onChangedVal;
+                  falseHope = this.animalId;
                   },
                   (onValidateVal){
                   if (onValidateVal == null){

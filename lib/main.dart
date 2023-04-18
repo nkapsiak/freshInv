@@ -4,7 +4,7 @@ import 'package:freshinv/main.dart';
 import 'package:freshinv/signUp.dart';
 import 'package:freshinv/welcomePage.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:freshinv/features/addItem.dart';
+import 'package:freshinv/features/customerInfo.dart';
 import 'dart:async';
 import 'package:freshinv/features/removeItem.dart';
 import 'features/checkInv.dart';
@@ -26,10 +26,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
       home: LoginPage(),
       routes: <String, WidgetBuilder> {
         '/landingpage': (BuildContext context) => new MyApp(),
