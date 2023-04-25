@@ -52,27 +52,27 @@ class welcomePage extends StatelessWidget {
             ),)),
           ),
           SizedBox(height: 20,),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Colors.yellow.shade50,Colors.green.shade900],
-
-              ),
-            ),
-            width: MediaQuery.of(context).size.width*.5,
-            height: MediaQuery.of(context).size.height*.125,
-            child:
-            TextButton(onPressed: () {
-              Navigator.of(context).pushNamed('/removeitem');
-            }, child: Text('Remove Item',
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.black
-            ),)),
-          ),
+          // Container(
+          //   decoration: BoxDecoration(
+          //     borderRadius: BorderRadius.circular(15),
+          //     gradient: LinearGradient(
+          //       begin: Alignment.topLeft,
+          //       end: Alignment.bottomRight,
+          //       colors: [Colors.yellow.shade50,Colors.green.shade900],
+          //
+          //     ),
+          //   ),
+          //   width: MediaQuery.of(context).size.width*.5,
+          //   height: MediaQuery.of(context).size.height*.125,
+          //   child:
+          //   TextButton(onPressed: () {
+          //     Navigator.of(context).pushNamed('/removeitem');
+          //   }, child: Text('Remove Item',
+          //   style: TextStyle(
+          //     fontSize: 20,
+          //     color: Colors.black
+          //   ),)),
+          // ),
           SizedBox(height: 20,),
           Container(
             decoration: BoxDecoration(

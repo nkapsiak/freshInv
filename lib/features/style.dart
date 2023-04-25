@@ -6,7 +6,7 @@ import 'package:freshinv/welcomePage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:freshinv/features/customerInfo.dart';
 import 'dart:async';
-import 'package:freshinv/features/removeItem.dart';
+import 'package:freshinv/features/Extra/removeItem.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';

@@ -118,6 +118,7 @@ class _LoginPageState extends State<LoginPage>{
                     Row(
                       children: [
                          Container(
+                           width: 110,
                               child: TextButton(
                                 style: TextButton.styleFrom(
                                     backgroundColor: Colors.transparent,
@@ -187,23 +188,23 @@ class _LoginPageState extends State<LoginPage>{
                           ),
                         ),
                         SizedBox(width: 5,),
-                        Container(
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                  backgroundColor: Colors.transparent,
-                                  foregroundColor: Colors.black),
-                              onPressed: () {},
-                              child: Text("Forgot Password"),),
-
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [Colors.yellow.shade50,Colors.green.shade900],
-
-                              ),
-                            )),
+                        // Container(
+                        //     child: TextButton(
+                        //       style: TextButton.styleFrom(
+                        //           backgroundColor: Colors.transparent,
+                        //           foregroundColor: Colors.black),
+                        //       onPressed: () {},
+                        //       child: Text("Forgot Password"),),
+                        //
+                        //     decoration: BoxDecoration(
+                        //       borderRadius: BorderRadius.circular(15),
+                        //       gradient: LinearGradient(
+                        //         begin: Alignment.topLeft,
+                        //         end: Alignment.bottomRight,
+                        //         colors: [Colors.yellow.shade50,Colors.green.shade900],
+                        //
+                        //       ),
+                        //     )),
 
                       ],
                     ),

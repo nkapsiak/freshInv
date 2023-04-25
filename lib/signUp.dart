@@ -33,7 +33,7 @@ class _SignUpState extends State<SignUp>{
         .size
         .height;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       body:Column(
         children:[
           SizedBox(height: 30,),
@@ -42,12 +42,12 @@ class _SignUpState extends State<SignUp>{
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 20,),
+                SizedBox(height: 150,),
                 Text('Sign Up Page',
                     style: TextStyle(
                       fontSize: 50,
                       fontStyle: FontStyle.italic,
-                      color: Colors.black,
+                      color: Colors.grey,
                     )
                 ),
                 SizedBox(height: 10,),
@@ -55,7 +55,7 @@ class _SignUpState extends State<SignUp>{
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blueGrey,
+                    color: Colors.grey,
                   ),),
                 SizedBox(height: 20),
                 Container(
@@ -118,31 +118,49 @@ class _SignUpState extends State<SignUp>{
                   ),
                 ),
                 ButtonBar(children: [
-                  ElevatedButton(style: ElevatedButton.styleFrom(backgroundColor:
-                  Colors.blueGrey,
-                      foregroundColor: Colors.black) ,
-                      onPressed: () {
-                        Navigator.pop(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                      } , child: Text('Back')),
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context, MaterialPageRoute(builder: (context) => LoginPage()));
-                    FirebaseAuth.instance.createUserWithEmailAndPassword(
-                        email: adminEmail,
-                        password: adminPassword).then((signedInUser){
-                          UserManagement().storeNewUser(signedInUser, context);
+                  Container(
+                    decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.yellow.shade50,Colors.green.shade900],
+                    )),
+                    child: TextButton(style: TextButton.styleFrom(
+                        foregroundColor: Colors.black) ,
+                        onPressed: () {
+                          Navigator.pop(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                        } , child: Text('Back')),
+                  ),
+                  Container(
+                      decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Colors.yellow.shade50,Colors.green.shade900],
+                      )),
+                    child: TextButton(style: TextButton.styleFrom(
+                      foregroundColor: Colors.black),
+                        onPressed: () {
+                          Navigator.pop(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                      FirebaseAuth.instance.createUserWithEmailAndPassword(
+                          email: adminEmail,
+                          password: adminPassword).then((signedInUser){
+                            UserManagement().storeNewUser(signedInUser, context);
 
 
-                    }).catchError((e){
-                      print(e);
-                    });
-                  },
-                      child: Text('Create Account')
+                      }).catchError((e){
+                        print(e);
+                      });
+                    },
+                        child: Text('Create Account')
+                    ),
                   ),
                 ],),
-                Container(child:
-                Image.asset("images/AccountCreation.png",fit: BoxFit.fill,)
-                ),
+                // Container(child:
+                // Image.asset("images/AccountCreation.png",fit: BoxFit.fill,)
+                // ),
 
 
               ],),

@@ -6,7 +6,7 @@ import 'package:freshinv/welcomePage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:freshinv/features/customerInfo.dart';
 import 'dart:async';
-import 'package:freshinv/features/removeItem.dart';
+import 'package:freshinv/features/Extra/removeItem.dart';
 import 'features/checkInv.dart';
 import 'package:freshinv/features/style.dart';
 

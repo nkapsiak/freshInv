@@ -29,10 +29,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  open_file: ^3.2.1
+  path_provider: ^2.0.14
+  syncfusion_flutter_pdf: ^21.1.41
+  pdf: ^3.10.1
   dropdown_button2: ^2.1.0
   snippet_coder_utils: ^1.0.13
   printing: ^5.10.1
-  pdf: ^3.9.0
   firebase_database: ^10.0.16
   cloud_firestore: ^4.4.5
   firebase_core: ^2.8.0

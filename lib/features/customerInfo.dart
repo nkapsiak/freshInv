@@ -1,7 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:freshinv/features/animInfo.dart';
-import 'package:freshinv/features/dropdown.dart';
+import 'package:freshinv/features/Extra/dropdown.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
 class AddItem extends StatefulWidget {
@@ -20,8 +20,19 @@ class _AddItemState extends State<AddItem> {
   final KillDateController = TextEditingController();
   final LocationController = TextEditingController();
   final MountStyleController = TextEditingController();
+  final DateController = TextEditingController();
+  final _controller = TextEditingController();
+
+  DateTime now = new DateTime.now();
 
 
+  // String? get _errorText{
+  // final text = _controller.value.text;
+  // if (text.isEmpty){
+  //   return "Cannot be Empty";
+  // }
+  // return null;
+  // }
   AnimalLabel? selectedAnimal;
 
 
@@ -65,6 +76,11 @@ class _AddItemState extends State<AddItem> {
 
               SizedBox(height: 20),
               Container(
+                child:  Text(
+                    '${now.month}/${now.day}/${now.year}'
+                ),
+              ),
+              Container(
                 decoration: BoxDecoration(
                   color: Colors.white54,
                   borderRadius: BorderRadius.circular(20),
@@ -77,10 +93,18 @@ class _AddItemState extends State<AddItem> {
                   //   )
                   // ]
               ),
-              child: TextField(
+              child: TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (text){
+                  if (text == null || text.isEmpty){
+                    return "Cannot be Empty";
+                  }
+                  return null;
+                },
                 controller: FirstNameController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
+                  // errorText: _errorText,
                     hintText: "First Name",
                     prefixIcon: Icon(Icons.branding_watermark),
                     border: OutlineInputBorder(
@@ -105,7 +129,14 @@ class _AddItemState extends State<AddItem> {
                   //   )
                   // ]
               ),
-                child: TextField(
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (text){
+                    if (text == null || text.isEmpty){
+                      return "Cannot be Empty";
+                    }
+                    return null;
+                  },
                 controller: LastNameController,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
@@ -132,7 +163,14 @@ class _AddItemState extends State<AddItem> {
                           //   )
                           // ]
                       ),
-                      child: TextField(
+                      child: TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (text){
+                          if (text == null || text.isEmpty){
+                            return "Cannot be Empty";
+                          }
+                          return null;
+                        },
                         controller: AddressController,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
@@ -160,7 +198,14 @@ class _AddItemState extends State<AddItem> {
                           //   )
                           // ]
                       ),
-                      child: TextField(
+                      child: TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (text){
+                          if (text == null || text.isEmpty){
+                            return "Cannot be Empty";
+                          }
+                          return null;
+                        },
                         controller: LocationController,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
@@ -187,7 +232,14 @@ class _AddItemState extends State<AddItem> {
                         //   )
                         // ]
                       ),
-                      child: TextField(
+                      child: TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (text){
+                          if (text == null || text.isEmpty){
+                            return "Cannot be Empty";
+                          }
+                          return null;
+                        },
                         controller: KillDateController,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
@@ -271,8 +323,8 @@ class _AddItemState extends State<AddItem> {
   }
 }
 enum AnimalLabel {
-  blue('Deer', Colors.blue),
-  pink('Bear', Colors.pink),
+  blue('Deer  ', Colors.blue),
+  pink('Bear  ', Colors.pink),
   green('Coyote', Colors.green);
 
 
