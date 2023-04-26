@@ -38,7 +38,7 @@ class _CheckInvState extends State<CheckInv> {
         child: TextButton(style: TextButton.styleFrom(
             backgroundColor: Colors.transparent,
             foregroundColor: Colors.black),
-          onPressed: (){ _createPdf();
+          onPressed: (){ _createPdf(inventory: inventory);
           },
 
           child: Column(
@@ -150,27 +150,151 @@ class _CheckInvState extends State<CheckInv> {
   }
 
   }
-Future<void> _createPdf() async{
+Future<void> _createPdf({required Map inventory}) async{
   Query dbRef = FirebaseDatabase.instance.ref().child('Inventory');
   DatabaseReference reference = FirebaseDatabase.instance.ref().child('Inventory');
 
-  PdfDocument document = PdfDocument();
+  final PdfDocument document = PdfDocument();
+  final PdfPage page = document.pages.add();
+  final PdfLayoutResult layoutResult = PdfTextElement(
+      text: "Todays Date",
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 0, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult1 = PdfTextElement(
+      text: "Supplier Name",
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 15, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult2 = PdfTextElement(
+      text: "Supplier Address",
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 30, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult3 = PdfTextElement(
+      text: "Supplier Contact Information",
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 45, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult7 = PdfTextElement(
+      text: 'Customer Information',
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 90, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult8 = PdfTextElement(
+      text: '------------------------------------------------------------------------------------------------------------',
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 105, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
 
-  PdfGrid grid = PdfGrid();
+  final PdfLayoutResult layoutResult4 = PdfTextElement(
+    text: inventory['First Name'],
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+    page: page,
+    bounds: Rect.fromLTWH(
+        0, 120, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult5 = PdfTextElement(
+      text: inventory['Last Name'],
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          50, 120, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult6 = PdfTextElement(
+      text: inventory['Address'],
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 135, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult9 = PdfTextElement(
+      text: inventory['Animal Type'],
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 150, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult12 = PdfTextElement(
+      text: "Quoted Price: ____________",
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 500, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult13 = PdfTextElement(
+      text: "Required deposit : \$200",
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 515, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult14 = PdfTextElement(
+      text: "Remaining Balance: ______________",
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 530, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult10 = PdfTextElement(
+      text: 'Customer Signature',
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 600, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
+  final PdfLayoutResult layoutResult11 = PdfTextElement(
+      text: "________________________________________",
+      font: PdfStandardFont(PdfFontFamily.helvetica, 12),
+      brush:PdfSolidBrush(PdfColor(0, 0, 0))).draw(
+      page: page,
+      bounds: Rect.fromLTWH(
+          0, 650, page.getClientSize().width, page.getClientSize().height),
+      format: PdfLayoutFormat(layoutType: PdfLayoutType.paginate))!;
 
-  grid.columns.add(count: 3);
-  grid.headers.add(1);
-
-  PdfGridRow header = grid.headers[0];
-  header.cells[0].value = 'Customer info';
-
-  PdfGridRow row = grid.rows.add();
-  row.cells[0].value = {''};
-  row.cells[1].value = ' ';
-  row.cells[2].value = ' ';
-
-  grid.draw(page: document.pages.add(),
-  bounds: const Rect.fromLTWH( 0, 0, 0, 0));
+  //
+  // PdfGrid grid = PdfGrid();
+  //
+  // grid.columns.add(count: 3);
+  // grid.headers.add(1);
+  //
+  // PdfGridRow header = grid.headers[0];
+  // header.cells[0].value = 'Customer info';
+  // header.cells[1].value = Text(inventory['First Name']);
+  //
+  // PdfGridRow row = grid.rows.add();
+  // row.cells[0].value = Text(inventory['First Name']);
+  // row.cells[1].value = ' ';
+  // row.cells[2].value = ' ';
+  //
+  // grid.draw(page: document.pages.add(),
+  // bounds: const Rect.fromLTWH( 0, 0, 0, 0));
 
 
 

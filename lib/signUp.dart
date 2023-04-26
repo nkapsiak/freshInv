@@ -158,9 +158,9 @@ class _SignUpState extends State<SignUp>{
                     ),
                   ),
                 ],),
-                // Container(child:
-                // Image.asset("images/AccountCreation.png",fit: BoxFit.fill,)
-                // ),
+                 Container(child:
+                 Image.asset("images/Picture1.png",fit: BoxFit.fill,)
+                 ),
 
 
               ],),

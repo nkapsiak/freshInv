@@ -1,6 +1,6 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:freshinv/features/animInfo.dart';
+import 'package:freshinv/features/Extra/animInfo.dart';
 import 'package:freshinv/features/Extra/dropdown.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
@@ -77,7 +77,12 @@ class _AddItemState extends State<AddItem> {
               SizedBox(height: 20),
               Container(
                 child:  Text(
-                    '${now.month}/${now.day}/${now.year}'
+                    '${now.month}/${now.day}/${now.year}',
+                  style: TextStyle(
+                  fontSize: 20,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.white,
+                )
                 ),
               ),
               Container(
@@ -106,7 +111,7 @@ class _AddItemState extends State<AddItem> {
                 decoration: InputDecoration(
                   // errorText: _errorText,
                     hintText: "First Name",
-                    prefixIcon: Icon(Icons.branding_watermark),
+                    prefixIcon: Icon(Icons.abc_sharp),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(width: 2, color: Colors.grey),
@@ -244,7 +249,7 @@ class _AddItemState extends State<AddItem> {
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
                             hintText: "Kill Date",
-                            prefixIcon: Icon(Icons.abc_sharp),
+                            prefixIcon: Icon(Icons.numbers_sharp),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                               borderSide: BorderSide(width: 2, color: Colors.grey),
@@ -255,7 +260,7 @@ class _AddItemState extends State<AddItem> {
                     SizedBox(height: 10,),
                     Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(20),
                         gradient: LinearGradient(
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -263,22 +268,54 @@ class _AddItemState extends State<AddItem> {
 
                         ),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            DropdownMenu<AnimalLabel>(
-                              controller: AnimalController,
-                              label: Text('Animal'),
-                              dropdownMenuEntries: animalEntries,
-                              onSelected: (AnimalLabel? animal) {
-                                setState(() {
-                                  selectedAnimal = animal;
-                                });
-                              },
-                            ),
-                          ],
+
+                        // child: Row(
+                        //   mainAxisSize: MainAxisSize.max,
+                        //   children: <Widget>[
+                        //     DropdownMenu<AnimalLabel>(
+                        //       controller: AnimalController,
+                        //       label: Text('Animal'),
+                        //       dropdownMenuEntries: animalEntries,
+                        //       onSelected: (AnimalLabel? animal) {
+                        //         setState(() {
+                        //           selectedAnimal = animal;
+                        //         });
+                        //       },
+                        //     ),
+                        //   ],
+                        // ),
+                      ),
+
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white54,
+                        borderRadius: BorderRadius.circular(20),
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //       spreadRadius: 3,
+                        //       blurRadius: 5,
+                        //       offset: Offset(1, 1),
+                        //       color: Colors.grey.withOpacity(0.4)
+                        //   )
+                        // ]
+                      ),
+                      child: TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        validator: (text){
+                          if (text == null || text.isEmpty){
+                            return "Cannot be Empty";
+                          }
+                          return null;
+                        },
+                        controller: AnimalController,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                            hintText: "Type of Animal",
+                            prefixIcon: Icon(Icons.abc_sharp),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: BorderSide(width: 2, color: Colors.grey),
+                            )
                         ),
                       ),
                     ),
@@ -322,13 +359,13 @@ class _AddItemState extends State<AddItem> {
     );
   }
 }
-enum AnimalLabel {
-  blue('Deer  ', Colors.blue),
-  pink('Bear  ', Colors.pink),
-  green('Coyote', Colors.green);
-
-
-  const AnimalLabel(this.label, this.animal);
-  final String label;
-  final Color animal;
-}
+// enum AnimalLabel {
+//   blue('Deer  ', Colors.blue),
+//   pink('Bear  ', Colors.pink),
+//   green('Coyote', Colors.green);
+//
+//
+//   const AnimalLabel(this.label, this.animal);
+//   final String label;
+//   final Color animal;
+// }

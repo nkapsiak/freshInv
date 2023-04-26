@@ -45,7 +45,7 @@ class welcomePage extends StatelessWidget {
             TextButton(onPressed: () {
               Navigator.of(context).pushNamed('/additem');
             },
-            child: Text('Add Item',
+            child: Text('Add Customer',
             style: TextStyle(
               fontSize: 20,
               color: Colors.black
@@ -90,7 +90,7 @@ class welcomePage extends StatelessWidget {
             child:
             TextButton(onPressed: () {
               Navigator.of(context).pushNamed('/checkinv');
-            }, child: Text('Check Inventory',
+            }, child: Text('Customer Info',
             style:TextStyle(fontSize: 20,
               color: Colors.black
             ))),
