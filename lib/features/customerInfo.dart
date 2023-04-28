@@ -346,7 +346,7 @@ class _AddItemState extends State<AddItem> {
                         dbRef.push().set(Inventory);
                         Navigator.pop(context, MaterialPageRoute(builder: (context) => AddItem()));
                       },
-                          child: Text('Add to Inventory',
+                          child: Text('Add Customer',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.black

@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
@@ -156,6 +159,7 @@ Future<void> _createPdf({required Map inventory}) async{
 
   final PdfDocument document = PdfDocument();
   final PdfPage page = document.pages.add();
+  // final PdfLayoutResult layoutResult20 = page.graphics.drawImage(PdfBitmap(await _readImageData('Picture1.png')), Rect.fromLTWH(200, 50, 200, 200));
   final PdfLayoutResult layoutResult = PdfTextElement(
       text: "Todays Date",
       font: PdfStandardFont(PdfFontFamily.helvetica, 12),
@@ -303,3 +307,9 @@ Future<void> _createPdf({required Map inventory}) async{
 
   saveAndLaunchFile(bytes, 'Output.pdf');
 }
+// Future<Int8List> _readImageData(String name)async{
+//   final data = await rootBundle.load('images/$name');
+//   return data.buffer.asInt8List(data.offsetInBytes, data.lengthInBytes);
+//
+//
+// }
